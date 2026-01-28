@@ -79,10 +79,12 @@ syntax keyword formPreProcCommand contained break
 syntax keyword formPreProcCommand contained breakdo
 syntax keyword formPreProcCommand contained call
 syntax keyword formPreProcCommand contained case
+syntax keyword formPreProcCommand contained clearflag
 syntax keyword formPreProcCommand contained clearoptimize
 syntax keyword formPreProcCommand contained close
 syntax keyword formPreProcCommand contained closedictionary
 syntax keyword formPreProcCommand contained commentchar
+syntax keyword formPreProcCommand contained continuedo
 syntax keyword formPreProcCommand contained create
 syntax keyword formPreProcCommand contained debug
 syntax keyword formPreProcCommand contained default
@@ -91,8 +93,10 @@ syntax keyword formPreProcCommand contained do
 syntax keyword formPreProcCommand contained else
 syntax keyword formPreProcCommand contained elseif
 syntax keyword formPreProcCommand contained enddo
+syntax keyword formPreProcCommand contained endfloat
 syntax keyword formPreProcCommand contained endif
 syntax keyword formPreProcCommand contained endinside
+syntax keyword formPreProcCommand contained endnamespace
 syntax keyword formPreProcCommand contained endprocedure
 syntax keyword formPreProcCommand contained endswitch
 syntax keyword formPreProcCommand contained exchange
@@ -105,6 +109,7 @@ syntax keyword formPreProcCommand contained ifndef
 syntax keyword formPreProcCommand contained include
 syntax keyword formPreProcCommand contained inside
 syntax keyword formPreProcCommand contained message
+syntax keyword formPreProcCommand contained namespace
 syntax keyword formPreProcCommand contained opendictionary
 syntax keyword formPreProcCommand contained optimize
 syntax keyword formPreProcCommand contained pipe
@@ -122,15 +127,19 @@ syntax keyword formPreProcCommand contained rmexternal
 syntax keyword formPreProcCommand contained rmseparator
 syntax keyword formPreProcCommand contained setexternal
 syntax keyword formPreProcCommand contained setexternalattr
+syntax keyword formPreProcCommand contained setflag
 syntax keyword formPreProcCommand contained setrandom
 syntax keyword formPreProcCommand contained show
 syntax keyword formPreProcCommand contained skipextrasymbols
+syntax keyword formPreProcCommand contained sortreallocate
+syntax keyword formPreProcCommand contained startfloat
 syntax keyword formPreProcCommand contained switch
 syntax keyword formPreProcCommand contained system
 syntax keyword formPreProcCommand contained terminate
 syntax keyword formPreProcCommand contained timeoutafter
 syntax keyword formPreProcCommand contained toexternal
 syntax keyword formPreProcCommand contained undefine
+syntax keyword formPreProcCommand contained use
 syntax keyword formPreProcCommand contained usedictionary
 syntax keyword formPreProcCommand contained write
 
@@ -139,6 +148,7 @@ syntax keyword formSetupKeyword   contained commentchar
 syntax keyword formSetupKeyword   contained compresssize
 syntax keyword formSetupKeyword   contained constindex
 syntax keyword formSetupKeyword   contained continuationlines
+syntax keyword formSetupKeyword   contained defaultprecision
 syntax keyword formSetupKeyword   contained define
 syntax keyword formSetupKeyword   contained dotchar
 syntax keyword formSetupKeyword   contained factorizationcache
@@ -153,6 +163,7 @@ syntax keyword formSetupKeyword   contained largepatches
 syntax keyword formSetupKeyword   contained largesize
 syntax keyword formSetupKeyword   contained maxnumbersize
 syntax keyword formSetupKeyword   contained maxtermsize
+syntax keyword formSetupKeyword   contained maxweight
 syntax keyword formSetupKeyword   contained maxwildcards
 syntax keyword formSetupKeyword   contained nospacesinnumbers
 syntax keyword formSetupKeyword   contained numstorecaches
@@ -209,11 +220,14 @@ syntax keyword formExecutable     contained argument
 syntax keyword formDeclaration    contained auto autodeclare skipwhite nextgroup=formDeclaration
 syntax keyword formOutputControl  contained bracket brackets
 syntax keyword formConditional    contained break
+syntax keyword formExecutable     contained canonicalize
 syntax keyword formConditional    contained case
 syntax keyword formDeclaration    contained cfunction cfunctions
 syntax keyword formExecutable     contained chainin
 syntax keyword formExecutable     contained chainout
 syntax keyword formExecutable     contained chisholm
+syntax keyword formExecutable     contained chop
+syntax keyword formExecutable     contained clearflag
 syntax keyword formDeclaration    contained cleartable
 syntax keyword formSpecification  contained collect
 syntax keyword formDeclaration    contained commuting
@@ -221,6 +235,7 @@ syntax keyword formDeclaration    contained commuteinset
 syntax keyword formDeclaration    contained compress
 syntax keyword formExecutable     contained contract
 syntax keyword formDefinition     contained copyspectator
+syntax keyword formExecutable     contained createall
 syntax keyword formDeclaration    contained createspectator
 syntax keyword formDeclaration    contained ctable
 syntax keyword formDeclaration    contained ctensor ctensors
@@ -249,6 +264,7 @@ syntax keyword formRepeat         contained endrepeat
 syntax keyword formConditional    contained endswitch
 syntax keyword formExecutable     contained endterm
 syntax keyword formRepeat         contained endwhile
+syntax keyword formExecutable     contained evaluate
 syntax keyword formExecutable     contained exit
 syntax keyword formDeclaration    contained extrasymbols
 syntax keyword formExecutable     contained factarg
@@ -296,6 +312,7 @@ syntax keyword formSpecification  contained ndrop
 syntax keyword formOutputControl  contained nfactorize
 syntax keyword formDeclaration    contained nfunction nfunctions
 syntax keyword formSpecification  contained nhide
+syntax keyword formSpecification  contained nintohide
 syntax keyword formExecutable     contained normalize
 syntax keyword formSpecification  contained notinparallel
 syntax keyword formOutputControl  contained nprint
@@ -330,6 +347,7 @@ syntax keyword formDeclaration    contained save
 syntax keyword formExecutable     contained select
 syntax keyword formDeclaration    contained set
 syntax keyword formExecutable     contained setexitflag
+syntax keyword formExecutable     contained setflag
 syntax keyword formExecutable     contained shuffle
 syntax keyword formSpecification  contained skip
 syntax keyword formDeclaration    contained slavepatchsize
@@ -337,6 +355,7 @@ syntax keyword formExecutable     contained sort
 syntax keyword formExecutable     contained splitarg
 syntax keyword formExecutable     contained splitfirstarg
 syntax keyword formExecutable     contained splitlastarg
+syntax keyword formExecutable     contained strictrounding
 syntax keyword formExecutable     contained stuffle
 syntax keyword formExecutable     contained sum
 syntax keyword formConditional    contained switch
@@ -348,7 +367,9 @@ syntax keyword formDeclaration    contained tensor tensors
 syntax keyword formExecutable     contained term
 syntax keyword formTableBase      contained testuse
 syntax keyword formDeclaration    contained threadbucketsize
+syntax keyword formExecutable     contained tofloat
 syntax keyword formExecutable     contained topolynomial
+syntax keyword formExecutable     contained torat torational
 syntax keyword formExecutable     contained tospectator
 syntax keyword formExecutable     contained totensor
 syntax keyword formExecutable     contained tovector
@@ -389,6 +410,7 @@ syntax case ignore
 syntax keyword formFunction       abs_
 syntax keyword formFunction       bernoulli_
 syntax keyword formFunction       binom_
+syntax keyword formFunction       block_
 syntax keyword formFunction       conjg_
 syntax keyword formFunction       content_
 syntax keyword formFunction       count_
@@ -397,12 +419,14 @@ syntax keyword formFunction       dd_
 syntax keyword formFunction       delta_
 syntax keyword formFunction       deltap_
 syntax keyword formFunction       denom_
+syntax keyword formFunction       diagrams_
 syntax keyword formFunction       distrib_
 syntax keyword formFunction       div_
 syntax keyword formFunction       dum_
 syntax keyword formFunction       dummy_
 syntax keyword formFunction       dummyten_
 syntax keyword formFunction       e_
+syntax keyword formFunction       edge_
 syntax keyword formFunction       exp_
 syntax keyword formFunction       exteuclidean_
 syntax keyword formFunction       extrasymbol_
@@ -411,16 +435,17 @@ syntax keyword formFunction       factorin_
 syntax keyword formFunction       farg_
 syntax keyword formFunction       firstbracket_
 syntax keyword formFunction       firstterm_
+syntax keyword formFunction       float_
+syntax keyword formFunction       g_
 syntax keyword formFunction       g5_
 syntax keyword formFunction       g6_
 syntax keyword formFunction       g7_
-syntax keyword formFunction       g_
 syntax keyword formFunction       gcd_
 syntax keyword formFunction       gi_
 syntax keyword formFunction       id_
 syntax keyword formFunction       integer_
-syntax keyword formFunction       invfac_
 syntax keyword formFunction       inverse_
+syntax keyword formFunction       invfac_
 syntax keyword formFunction       makerational_
 syntax keyword formFunction       match_
 syntax keyword formFunction       max_
@@ -429,14 +454,17 @@ syntax keyword formFunction       min_
 syntax keyword formFunction       minpowerof_
 syntax keyword formFunction       mod_
 syntax keyword formFunction       mod2_
-syntax keyword formFunction       mul_
 syntax keyword formFunction       moebius_
+syntax keyword formFunction       mul_
 syntax keyword formFunction       nargs_
+syntax keyword formFunction       node_
 syntax keyword formFunction       nterms_
 syntax keyword formFunction       numfactors_
+syntax keyword formFunction       onepi_
 syntax keyword formFunction       partitions_
 syntax keyword formFunction       pattern_
 syntax keyword formFunction       perm_
+syntax keyword formFunction       phi_
 syntax keyword formFunction       poly_
 syntax keyword formFunction       prime_
 syntax keyword formFunction       putfirst_
@@ -450,6 +478,7 @@ syntax keyword formFunction       setfun_
 syntax keyword formFunction       sig_
 syntax keyword formFunction       sign_
 syntax keyword formFunction       sizeof_
+syntax keyword formFunction       sizeof_
 syntax keyword formFunction       sum_
 syntax keyword formFunction       sump_
 syntax keyword formFunction       table_
@@ -459,7 +488,10 @@ syntax keyword formFunction       termsin_
 syntax keyword formFunction       termsinbracket_
 syntax keyword formFunction       theta_
 syntax keyword formFunction       thetap_
+syntax keyword formFunction       tofloat_
+syntax keyword formFunction       topo_
 syntax keyword formFunction       topologies_
+syntax keyword formFunction       torat_
 
 syntax keyword formFunction       sqrt_
 syntax keyword formFunction       ln_
@@ -478,6 +510,14 @@ syntax keyword formFunction       acosh_
 syntax keyword formFunction       atanh_
 syntax keyword formFunction       li2_
 syntax keyword formFunction       lin_
+syntax keyword formFunction       mzv_
+syntax keyword formFunction       euler_
+syntax keyword formFunction       mzvhalf_
+syntax keyword formFunction       agm_
+syntax keyword formFunction       gamma_
+syntax keyword formFunction       eexp_
+syntax keyword formFunction       hpl_
+syntax keyword formFunction       mpl_
 
 syntax keyword formFunction       coeff_
 syntax keyword formFunction       num_
@@ -486,6 +526,8 @@ syntax keyword formFunction       xarg_
 syntax keyword formFunction       dimension_
 syntax keyword formFunction       factor_
 syntax keyword formFunction       sep_
+syntax keyword formFunction       ee_
+syntax keyword formFunction       em_
 syntax keyword formFunction       iarg_
 syntax keyword formFunction       parg_
 
